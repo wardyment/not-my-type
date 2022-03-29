@@ -1,3 +1,5 @@
+![Not my type logo](https://github.com/wardyment/not-my-type/blob/main/images/Promo1.jpg?raw=true)
+
 # Not my type
 
 A handful of code and comments to get you started on the journey of learning typscript.
