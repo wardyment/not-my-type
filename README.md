@@ -14,6 +14,7 @@ Make sure you have node and yarn installed on your machine.
 Once you have this repo just type following
 
 ```
+yarn
 yarn tsc --watch
 ```
 
