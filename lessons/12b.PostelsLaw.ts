@@ -1,6 +1,8 @@
 /**
  * Be liberal in what you accept and strict in what you produce
  */
+
+/*
 declare type Feature = {};
 declare function setCamera(camera: CameraOptions): void;
 declare function viewportForBounds(bounds: LngLatBounds): Camera;
@@ -42,6 +44,6 @@ function focusOnFeature(f: Feature) {
   } = camera;
   window.location.search = `?v=@${lat},${lng}z${zoom}`;
 }
-
+*/
 // Input types tend to be broader than output types
 // Introduce a canonical form for return types and a loose form for parameters

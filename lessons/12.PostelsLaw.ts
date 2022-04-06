@@ -2,6 +2,8 @@
  * Be liberal in what you accept and strict in what you produce
  */
 // using a namespace here so that you dont get errors from sibling file
+
+/*
 namespace postels1 {
   declare type Feature = {};
   declare function setCamera(camera: CameraOptions): void;
@@ -37,6 +39,9 @@ namespace postels1 {
     // camera could be one of 19 different value types
     const camera = viewportForBounds(bounds);
     setCamera(camera);
+
+    
+
     const {
       center: { lat, lng },
       zoom,
@@ -44,3 +49,4 @@ namespace postels1 {
     window.location.search = `?v=@${lat},${lng}z${zoom}`;
   }
 }
+*/ 
