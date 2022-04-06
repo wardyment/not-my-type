@@ -1,6 +1,8 @@
 import _ from "lodash";
 import * as fp from "lodash/fp";
 
+// Make sure you the @types/lodash package
+
 /**  What is lodash?
 
 Some history.
@@ -15,7 +17,9 @@ Underscore was create in 2009 (DocumentCloud) or something to smooth over these 
 
 Was created by Jeremy Ashkenas (CoffeeScript, Backbone etc). 
 
-Problems with Underscore....
+Problems with Underscore.... not clear.
+
+Now 
 
 Data first instead of last - not cool for functional programming - currying mainly
 
@@ -33,7 +37,7 @@ Number - clamp, inRange, random
 Object - pick, convert to array, copy, get all the functions, get, set
 Seq - chain, tap, thru
 String - camelCase etc
-Util - 
+Util - handy things
 */
 
 
