@@ -44,20 +44,20 @@ Util - handy things
 
 //---- lets play ------
 
-// console.log(_.VERSION)
+console.log(_.VERSION)
 
 // const words = ['some','kind','of','sentence']
 // console.log(_.first(words)) // 'some'
 
 // const nums = [1,2,[43],45,[8,[6,3]],3,4,56]
 // const flatNums = _.flattenDeep([1,2,[43],45,[8,[6,3]],3,4,56])
-// const flatNums = _(nums).flattenDeep().value()
-// console.log(flatNums)
+// const flatNums = _(nums).flattenDeep()
+// console.log(flatNums.value())
 // console.log(_.nth(nums, 3)) // 45
 // console.log(_.chunk(_.flattenDeep(nums), 2))
 
 // console.log(_.random(5, 10))
-// console.log(_.shuffle(flatNums))
+// console.log(_.shuffle(flatNums.value()))
 
 // console.log(_.times(7, (n) => `${n}): sup`))
 
@@ -124,29 +124,29 @@ const complexArr = [
 ];
 
 // console.log(complexArr.map(o => o.a[0].n))
-// console.log(_.map(complexArr, 'a[0].n')) // ooooh, nice!
+console.log(_.map(complexArr, 'a[0].n')) // ooooh, nice!
 
-// const users = {
-//   a: 4,
-//   b: 5,
-// };
+const users3 = {
+  a: 4,
+  b: 5,
+};
 
 // Do some filters bro!
 
-// const customers = [
-//   {
-//     name: "Bob",
-//     active: true,
-//   },
-//   {
-//     name: "Jane",
-//     active: false,
-//   },
-//   {
-//     name: "Greg",
-//     active: true,
-//   },
-// ];
+const customers = [
+  {
+    name: "Bob",
+    active: true,
+  },
+  {
+    name: "Jane",
+    active: false,
+  },
+  {
+    name: "Greg",
+    active: true,
+  },
+];
 // ES6
 // console.log(customers.filter(customer => customer.active))
 // console.log(customers.filter(customer => customer.active && customer.name === 'Bob'))
@@ -180,85 +180,83 @@ const complexArr = [
 
 // Let's make curry
 
-// const add = (a: number, b: number, c:number) => a + b + c
+const add = (a: number, b: number, c:number) => a + b + c
 
-// console.log(add(1, 4, 8))
+console.log(add(1, 4, 8))
 
-// const curryAdd = _.curry(add)
+const curryAdd = _.curry(add)
 
 // can create new functions based on a single one
-// console.log(curryAdd(1)(4)(8))
+console.log(curryAdd(1)(4)(8))
 
-// const add5 = curryAdd(5)
 
-// console.log(add5(5)(5))
+const add5 = curryAdd(5)
+
+// f(a,b,c) => y ----- (a) => (b) => (c) => y
+
+console.log(add5(5)(5))
 
 // Lets chain it
 
-// const lines = `sometimes apple
-// taste bad banana coz banana you apple left
-// them in the fridge onion
-//  pear pear onion apple
-// with another apple or onion`.split("\n");
+const lines = `sometimes apple
+taste bad banana coz banana you apple left
+them in the fridge onion
+ pear pear onion apple
+with another apple or onion`.split("\n");
 
-// _.chain(lines)
-//   .tap(console.log)
-//   .flatMap((line) => line.split(/\s+/))
-//   .tap(console.log)
-//   .filter((word) => word.length > 3)
-//   .tap(console.log)
-//   .groupBy(_.identity)
-//   .tap(console.log)
-//   .mapValues(_.size)
-//   .tap(console.log)
-//   .value();
+console.log(_(lines)
+  .flatMap((line) => line.split(/\s+/))
+  .filter((word) => word.length > 3)
+  .groupBy(_.identity)
+  .mapValues(_.size)
+  .value())
 
-// console.log(countWords);
 
-// var users = [
-//   { user: "barney", age: 36 },
-//   { user: "fred", age: 40 },
-//   { user: "pebbles", age: 1 },
-// ];
+var users = [
+  { user: "barney", age: 36 },
+  { user: "fred", age: 40 },
+  { user: "pebbles", age: 1 },
+];
 
-// var youngest = _.chain(users)
-//   .sortBy("age")
-//   .map(function (o) {
-//     return o.user + " is " + o.age;
-//   })
-//   .head()
-//   .value();
+var youngest = _.chain(users)
+  .sortBy("age")
+  // .reverse()
+  .map(function (o) {
+    return o.user + " is " + o.age;
+  })
+  .head()
+  .value();
 // // => 'pebbles is 1'
 
-// console.log(youngest)
+console.log(youngest)
 
 // Composition f(g(k(x))) = k(g(f(x))) or something
 
-// const someLetters = ['a', 'b', 'c']
+const someLetters = ['a', 'b', 'c']
 
 // const dosomestuff = _.toPlainObject(_.map(someLetters, _.upperCase))
 
 // console.log(dosomestuff)
 
-// const dosomestuffComposed = fp.compose(fp.toPlainObject, fp.map(fp.upperCase))
+const dosomestuffComposed = fp.compose(fp.toPlainObject, fp.map(fp.upperCase))
 
-// const more = dosomestuffComposed(someLetters)
+const more = dosomestuffComposed(someLetters)
 
-// console.log(more)
+console.log(more)
 
 // Similar to chaining but this is a function you can reuse
 
 // Stuff you can sue for testing
 
-// const match = _.matches({active: true})
+const match = _.matches({active: true})
 
-// console.log(match({active: false}), match({name: 'margo', active: true}))
+console.log(match({active: false}), match({name: 'margo', active: true}))
 
-// const data = {
-//     nname: 'Admam',
-//     active :true
-// }
+const data = {
+    nname: 'MArge',
+    active :true
+}
 
-// const f = _.property('name')
+const f = _.property('name')
 
-// console.log(data, 'name toBe Adam', f(data) === 'Adam')
+console.log(data, 'name toBe Adam',  f(data) === 'Adam')
